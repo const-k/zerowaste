@@ -1,4 +1,4 @@
-package com.zerowaste.shop.zerowaste;
+package com.zerowaste;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
