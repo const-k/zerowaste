@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ZerowasteApplication {
+public class ZeroWasteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ZerowasteApplication.class, args);
+		SpringApplication.run(ZeroWasteApplication.class, args);
 	}
 
 }
