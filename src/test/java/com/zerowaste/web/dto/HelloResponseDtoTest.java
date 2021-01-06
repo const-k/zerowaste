@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 class HelloResponseDtoTest {
@@ -18,7 +19,7 @@ class HelloResponseDtoTest {
         HelloResponseDto dto = new HelloResponseDto(name, amount);
 
         // then
-        assertEquals(dto.getName(), name);
-        assertEquals(dto.getAmount(), amount);
+        assertThat(dto.getName()).isEqualTo(name);
+        assertThat(dto.getAmount()).isEqualTo(amount);
     }
 }
