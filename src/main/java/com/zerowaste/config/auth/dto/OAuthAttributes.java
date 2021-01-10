@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.util.Map;
 
 @Getter
-public class OAuthAttributes {
+public class OAuthAttributes { // OAuth2UserService 를 통해 가져온 OAuth2User 의 attribute 를 담을 클래스, 이후 네이버 등 다른 소셜 로그인도 이 클래스 이용함
     private Map<String, Object> attributes;
     private String nameAttributeKey;
     private String name;
@@ -30,7 +30,7 @@ public class OAuthAttributes {
 
     private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
         return OAuthAttributes.builder()
-                .name((String) attributes.get("name"))
+                .name((String) attributes.get("name")) // attribute = OAuth2UserService 를 통해 가져온 OAuth2User 의 attributes
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
@@ -43,7 +43,7 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.GUEST)
+                .role(Role.GUEST) // 가입할 때의 기본 권한을 GUEST로 주기 위해 Role.GUEST로 지정
                 .build();
     }
 
