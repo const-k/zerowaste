@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest
 class HelloResponseDtoTest {
     @Test
     public void lombokTest() throws Exception{

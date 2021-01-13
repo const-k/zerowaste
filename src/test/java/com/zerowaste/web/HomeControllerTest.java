@@ -1,23 +1,32 @@
 package com.zerowaste.web;
 
+import com.zerowaste.config.auth.SecurityConfig;
 import com.zerowaste.web.dto.HelloResponseDto;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(HomeController.class)
+@WebMvcTest(value = HomeController.class,
+    excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        }
+    )
 class HomeControllerTest {
     @Autowired
     private MockMvc mvc;
 
     @Test
-    public void testHelloApi() throws Exception {
+    @WithMockUser(roles = "USER")
+    public void hello가_리턴된다() throws Exception {
         String hello = "hello";
 
         mvc.perform(get("/hello"))
@@ -26,7 +35,8 @@ class HomeControllerTest {
     }
 
     @Test
-    public void testHelloDtoApi() throws Exception {
+    @WithMockUser(roles = "USER")
+    public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 1000;
 
