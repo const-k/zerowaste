@@ -1,17 +1,19 @@
 spring:
   jpa:
+    show_sql: true
     hibernate:
       ddl-auto: create
-      dialect: org.hibernate.dialect.MYSQL5InnoDBDialect
     properties:
       hibernate:
-        show_sql: true
         format_sql: true
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        storage_engine: innodb
   datasource:
-    url: jdbc:h2:tcp://localhost/~/zerowaste
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    hikari:
+      jdbc-url: jdbc:h2:tcp://localhost/~/zerowaste;MODE=MYSQL
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
 
   # Test OAuth
   security:
