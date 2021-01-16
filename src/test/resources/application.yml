@@ -2,6 +2,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+      dialect: org.hibernate.dialect.MYSQL5InnoDBDialect
     properties:
       hibernate:
         show_sql: true
