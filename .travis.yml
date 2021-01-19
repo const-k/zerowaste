@@ -20,7 +20,7 @@ before_deploy:
   - mv zerowaste-webservice.zip deploy/zerowaste-webservice.zip
 
 deploy:
-  - provider: a3
+  - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
     bucket: zerowaste-build # s3 버킷
